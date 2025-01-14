@@ -8,7 +8,7 @@ public interface PatientRecordsService {
 
     CreatePatientRecordsResponse createPatientRecords(CreatePatientRecordsRequest request);
 
-    PatientRecord getPatientRecords(BigDecimal patientId);
+    PatientRecord getPatientRecords(Integer patientId);
 
-    UpdatePatientRecordsResponse updatePatientRecords(BigDecimal patientId, UpdatePatientRecordsRequest updatePatientRecordsRequest);
+    UpdatePatientRecordsResponse updatePatientRecords(Integer patientId, UpdatePatientRecordsRequest updatePatientRecordsRequest);
 }

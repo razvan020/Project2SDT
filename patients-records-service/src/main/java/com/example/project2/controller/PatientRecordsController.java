@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,10 +17,6 @@ public class PatientRecordsController implements ApiApi {
 
     private final PatientRecordsService patientRecordsService;
 
-    @Override
-    public ResponseEntity<PatientRecord> getPatientRecords(@NotNull @Valid BigDecimal patientId) {
-        return ResponseEntity.ok(patientRecordsService.getPatientRecords(patientId));
-    }
 
     @Override
     public ResponseEntity<CreatePatientRecordsResponse> createPatientRecords(@Valid CreatePatientRecordsRequest createPatientRecordsRequest) {
@@ -29,7 +24,14 @@ public class PatientRecordsController implements ApiApi {
     }
 
     @Override
-    public ResponseEntity<UpdatePatientRecordsResponse> updatePatientRecords(@NotNull @Valid BigDecimal patientId, @Valid UpdatePatientRecordsRequest updatePatientRecordsRequest) {
+    public ResponseEntity<PatientRecord> getPatientRecords(@NotNull @Valid Integer patientId) {
+        return ResponseEntity.ok(patientRecordsService.getPatientRecords(patientId));
+    }
+
+    @Override
+    public ResponseEntity<UpdatePatientRecordsResponse> updatePatientRecords(@NotNull @Valid Integer patientId, @Valid UpdatePatientRecordsRequest updatePatientRecordsRequest) {
         return ResponseEntity.ok(patientRecordsService.updatePatientRecords(patientId, updatePatientRecordsRequest));
     }
+
+
 }

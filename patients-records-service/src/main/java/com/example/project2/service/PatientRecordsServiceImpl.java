@@ -19,13 +19,13 @@ public class PatientRecordsServiceImpl implements PatientRecordsService {
     }
 
     @Override
-    public PatientRecord getPatientRecords(BigDecimal patientId) {
-        return patientRecordsRepository.getPatientRecordByPatientId(patientId.toString());
+    public PatientRecord getPatientRecords(Integer patientId) {
+        return patientRecordsRepository.getPatientRecordByPatientId(patientId);
 
     }
 
     @Override
-    public UpdatePatientRecordsResponse updatePatientRecords(BigDecimal patientId, UpdatePatientRecordsRequest updatePatientRecordsRequest) {
-        return patientRecordsRepository.updatePatientRecords(updatePatientRecordsRequest, patientId);
+    public UpdatePatientRecordsResponse updatePatientRecords(Integer patientId, UpdatePatientRecordsRequest updatePatientRecordsRequest) {
+        return patientRecordsRepository.updatePatientRecords(patientId, updatePatientRecordsRequest);
     }
 }
