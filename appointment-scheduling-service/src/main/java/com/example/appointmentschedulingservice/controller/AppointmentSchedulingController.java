@@ -10,6 +10,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.NativeWebRequest;
 
 
 import java.math.BigDecimal;
@@ -28,17 +29,17 @@ public class AppointmentSchedulingController implements ApiApi {
     }
 
     @Override
-    public ResponseEntity<DeleteAppointmentResponse> deleteAppointment(@NotNull @Valid BigDecimal appointmentId) {
+    public ResponseEntity<DeleteAppointmentResponse> deleteAppointment(@NotNull @Valid Integer appointmentId) {
         return ResponseEntity.ok(appointmentSchedulingService.deleteAppointment(appointmentId));
     }
 
     @Override
-    public ResponseEntity<AppointmentDetails> getAppointment(@NotNull @Valid BigDecimal appointmentId) {
+    public ResponseEntity<AppointmentDetails> getAppointment(@NotNull @Valid Integer appointmentId) {
         return ResponseEntity.of(appointmentSchedulingService.getAppointmentById(appointmentId));
     }
 
     @Override
-    public ResponseEntity<UpdateAppointmentResponse> updateAppointment(@NotNull @Valid BigDecimal appointmentId, @Valid UpdateAppointmentRequest updateAppointmentRequest) {
+    public ResponseEntity<UpdateAppointmentResponse> updateAppointment(@NotNull @Valid Integer appointmentId, @Valid UpdateAppointmentRequest updateAppointmentRequest) {
         return ResponseEntity.ok(appointmentSchedulingService.updateAppointment(updateAppointmentRequest, appointmentId));
     }
 }

@@ -5,7 +5,6 @@ import com.example.appointmentschedulingservice.repository.AppointmentScheduling
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.Optional;
 
 @Service
@@ -15,7 +14,7 @@ public class AppointmentSchedulingServiceImpl implements AppointmentSchedulingSe
     private final AppointmentSchedulingRepository appointmentSchedulingRepository;
 
     @Override
-    public Optional<AppointmentDetails> getAppointmentById(BigDecimal appointmentId) {
+    public Optional<AppointmentDetails> getAppointmentById(Integer appointmentId) {
         return Optional.ofNullable(appointmentSchedulingRepository.getAppointmentById(appointmentId));
     }
 
@@ -25,12 +24,12 @@ public class AppointmentSchedulingServiceImpl implements AppointmentSchedulingSe
     }
 
     @Override
-    public UpdateAppointmentResponse updateAppointment(UpdateAppointmentRequest updateAppointmentRequest, BigDecimal appointmentId) {
+    public UpdateAppointmentResponse updateAppointment(UpdateAppointmentRequest updateAppointmentRequest, Integer appointmentId) {
         return appointmentSchedulingRepository.updateAppointment(updateAppointmentRequest, appointmentId);
     }
 
     @Override
-    public DeleteAppointmentResponse deleteAppointment(BigDecimal appointmentId) {
+    public DeleteAppointmentResponse deleteAppointment(Integer appointmentId) {
         return appointmentSchedulingRepository.deleteAppointment(appointmentId);
     }
 }
