@@ -4,6 +4,7 @@ import com.api.project2.model.generated.appointmentscheduling.AppointmentDetails
 import com.api.project2.model.generated.patientsrecords.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -48,6 +49,7 @@ public class PatientRecordsRepository {
                 );
 
         PatientRecord patientRecord = response.getFirst();
+
 
         String appointmentsServiceUrl = discoveryClient.getInstances("appointment-scheduling-service")
                 .stream()
